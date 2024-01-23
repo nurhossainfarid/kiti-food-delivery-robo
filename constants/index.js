@@ -220,7 +220,6 @@ export const Fooditems =[
 
 
 
-
 export const ServicesItem = [
     {
         id:1,
@@ -235,7 +234,7 @@ export const ServicesItem = [
     {
         id:3,
         title:'Smart Pickup',
-        image:'/assets/pickup.jpg'
+        image:'/assets/Kiti2.png'
     }
  
 ]
