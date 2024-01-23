@@ -5,7 +5,7 @@ import { Button } from '../ui/button'
 const HeroSection = () => {
   return (
       <section className='bg-[#DCEBF9] w-full h-screen ' >
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div>
              <Image src={'/assets/Kiti1.png'}  width={700} height={600} className='backdrop-blur' alt='kiti_hero_Image' />
