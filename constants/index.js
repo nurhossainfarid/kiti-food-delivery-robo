@@ -217,3 +217,27 @@ export const Fooditems =[
         image:'https://i.ibb.co/Cbby8Qy/ashim-d-silva-RNt-DCo-V7o4c-unsplash.jpg'
     },
 ]
+
+
+
+
+export const ServicesItem = [
+    {
+        id:1,
+        title:'Online Order',
+        image:'/assets/OnlineOrder.png'
+    },
+    {
+        id:2,
+        title:'Smart Delivery',
+        image:'/assets/Kiti 2.png'
+    },
+    {
+        id:3,
+        title:'Smart Pickup',
+        image:'/assets/pickup.jpg'
+    }
+ 
+]
+
+
