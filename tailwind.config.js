@@ -22,6 +22,7 @@ module.exports = {
         primary: '#2C9BDB',
         secondary:'#FAAE00',
         deep_blue:'#271F81',
+        primary_background:'#DCEBF9'
       }, 
       keyframes: {
         "accordion-down": {
@@ -38,6 +39,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+  },
+  daisyui: {
+    themes: [],
   },
   plugins: [
     require("tailwindcss-animate"),  
