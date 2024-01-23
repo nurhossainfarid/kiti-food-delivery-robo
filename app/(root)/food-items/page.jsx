@@ -4,5 +4,5 @@ const FoodItemPage = () => {
   )
 }
 
-export default FoodItemPage
+export default FoodItemPage;
   
