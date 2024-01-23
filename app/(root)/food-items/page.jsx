@@ -6,9 +6,9 @@ const FoodItemPage = () => {
   //The FoodItems APi will come from websocket backend server(it will be provided by backend)
 
   return (
-   <main className="bg-primary_background  px-5 ">
+   <main className="bg-primary_background px-5  lg:px-10 ">
         <h2  className="text-4xl text-center p-4" >Food Items</h2>
-        <div className="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 gap-4  " >
+        <div className="grid grid-cols-1   md:grid-cols-2 lg:grid-cols-3 gap-10 items-center justify-center  " >
            {Fooditems.map((item) => <FoodItem key={item.id}  item={item} /> )  }
         </div>
    </main>

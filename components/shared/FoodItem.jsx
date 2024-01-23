@@ -8,7 +8,7 @@ const FoodItem = ({item}) => {
 
   return (
     <div >
-          <div className=" flex space-y-3 bg-white shadow-xl  items-center p-3 rounded-md w-10/12 relative  ">
+          <div className=" flex space-y-3 bg-white shadow-xl  items-center p-4 md:p-7 rounded-md w-10/12 relative h-full ">
               <div className=" w-3/6  md:w-4/6 lg:w-8/12 space-y-2 "  >
                 <h2 className="card-title">{title}</h2>
                 <p  >{description.slice(0, 40)}...</p>
