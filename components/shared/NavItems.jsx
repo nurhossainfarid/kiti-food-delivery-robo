@@ -20,7 +20,7 @@ const NavItems = () => {
             <li><Link href={'/dashboard'}>Dashboard</Link></li>
 
             <li className="hidden md:block">
-                <Button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>Login/SignUp</Button>
+                <Button className="btn bg-primary " onClick={()=>document.getElementById('my_modal_3').showModal()}>Login/SignUp</Button>
                 <dialog id="my_modal_3" className="modal  ">
                 <div className="modal-box">
                     <form method="dialog">
