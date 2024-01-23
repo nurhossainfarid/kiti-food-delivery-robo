@@ -7,6 +7,7 @@ module.exports = {
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
   ],
+  
   prefix: "",
   theme: {
     container: {
@@ -17,6 +18,11 @@ module.exports = {
       },
     },
     extend: {
+      colors: {
+        primary: '#2C9BDB',
+        secondary:'#FAAE00',
+        deep_blue:'#271F81',
+      }, 
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -33,7 +39,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"), 
-    require("daisyui")]
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
 }
