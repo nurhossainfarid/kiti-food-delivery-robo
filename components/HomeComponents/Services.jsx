@@ -21,7 +21,7 @@ const Services = () => {
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
               <div className="p-1">
-                <h2>hello world</h2>
+                <h2> hello Kiti</h2>
               </div>
             </CarouselItem>
           ))}
