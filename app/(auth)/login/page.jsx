@@ -1,8 +1,10 @@
-
+import Form from "@/components/shared/Form";
 
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div>
+      <Form/>
+    </div>
   )
 }
 

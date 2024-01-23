@@ -3,6 +3,8 @@ import Image from "next/image";
 
 const Services = () => {
   return (
+    <section>
+          
     </section>
   )
 }
