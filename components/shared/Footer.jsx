@@ -6,8 +6,8 @@ import { Button } from '../ui/button';
 const Footer = () => {
     return (
         <footer className='bg-[#D9D9D9] p-5 px-10 ' >
-            <div className='flex justify-between' >
-                <div>
+            <div className='flex justify-between flex-col md:flex-row space-y-5  ' >
+                <div className=' mx-auto   md:mx-0 ' >
                     <Image src={'/assets/Kiti-Logo.png'} width={200} height={200} alt='footer_logo' />
                 </div>
                 <div>
