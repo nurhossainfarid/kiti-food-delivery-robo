@@ -20,10 +20,6 @@ const NavItems = () => {
             <li><Link href={'/food-items'} >Food Items</Link></li>
             <li><Link href={'/contact'}>Contact</Link></li>
             <li><Link href={'/dashboard'}>Dashboard</Link></li>
-
-           
-
-
         </ul>
     )
 }

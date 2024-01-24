@@ -23,8 +23,7 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs"
-import LoginPage from "@/app/(auth)/login/page";
-import SignUpPage from "@/app/(auth)/signup/page";
+
 
 const Navbar = () => {
 
@@ -54,10 +53,10 @@ const Navbar = () => {
                             <TabsTrigger value="signup">Signup</TabsTrigger>
                         </TabsList>
                         <TabsContent value="login">
-                            <LoginPage />
+                          <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias minima quidem numquam, beatae quibusdam, at magni animi provident iure enim quos architecto quisquam necessitatibus ullam voluptas optio iusto vero qui.</h2>
                         </TabsContent>
                         <TabsContent value="signup">
-                            <SignUpPage />
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium ea eveniet tempore unde ex praesentium neque nobis eius aut ullam. Earum alias atque itaque dolores magnam quo. Ad, rem qui!</h2>
                         </TabsContent>
                     </Tabs>
                 </dialog>
