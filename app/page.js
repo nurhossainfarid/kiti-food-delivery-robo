@@ -6,7 +6,7 @@ import VideoSection from "@/components/HomeComponents/VideoSection";
 
 export default function Home() {
   return (
-      <main>
+      <main className="bg-gradient-to-tl from-indigo-50 to-blue-200  " >
         <HeroSection />
         <TopSell />
         <Services />
