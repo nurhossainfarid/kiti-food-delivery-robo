@@ -63,31 +63,6 @@ const Navbar = () => {
                 </dialog>
 
            
-<<<<<<< HEAD
-            <DropdownMenu>
-                    <DropdownMenuTrigger>
-                        <Button>Login/SignUp</Button>
-                    </DropdownMenuTrigger>
-                    
-                    <DropdownMenuContent style={{width:'100%', position:'relative', top:'25px'}} >
-                        <Tabs defaultValue="account" className="w-[400px]">
-                            <TabsList className="grid w-full grid-cols-2">
-                                <TabsTrigger value="login">Login</TabsTrigger>
-                                <TabsTrigger value="signup">Signup</TabsTrigger>
-                            </TabsList>
-                            <TabsContent value="login">
-                                <LoginPage/>
-                            </TabsContent>
-                            <TabsContent value="signup">
-                                <h2>Hello Signup</h2>
-                            </TabsContent>
-                        </Tabs>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-                
-            </div>
-=======
->>>>>>> d0ce1811dd5d306280a0f47a90dd82c8feffc79a
 
             <div className="md:hidden" >
                 <Sheet>
