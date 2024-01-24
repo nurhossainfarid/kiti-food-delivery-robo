@@ -1,14 +1,15 @@
 import Form from "@/components/shared/Form";
 
-const LoginPage = () => {
+const LoginRegistrationPage = (props) => {
+  const {login = false, feedback = false} = props;
   return (
-    <div>
-      <Form/>
+    <div className="p-5" >
+      <Form login={login} feedback={feedback}/>
     </div>
   )
 }
 
-export default LoginPage;
+export default LoginRegistrationPage;
 
 
 
