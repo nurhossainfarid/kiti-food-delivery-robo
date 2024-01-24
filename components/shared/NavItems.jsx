@@ -7,8 +7,7 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs"
-import LoginPage from "@/app/(auth)/login/page";
-import SignUpPage from "@/app/(auth)/signup/page";
+
 
 
 const NavItems = () => {
@@ -20,6 +19,8 @@ const NavItems = () => {
             <li><Link href={'/food-items'} >Food Items</Link></li>
             <li><Link href={'/contact'}>Contact</Link></li>
             <li><Link href={'/dashboard'}>Dashboard</Link></li>
+
+
         </ul>
     )
 }
