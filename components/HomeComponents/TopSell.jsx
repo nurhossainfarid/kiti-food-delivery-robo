@@ -10,7 +10,7 @@ import {
   import FoodItem from '../shared/FoodItem';
 
   import { Swiper, SwiperSlide } from 'swiper/react';
-
+  
   // Import Swiper styles
   import 'swiper/css';
   import 'swiper/css/effect-coverflow';
@@ -18,7 +18,7 @@ import {
   
 
   // import required modules
-  import { EffectCoverflow, Pagination } from 'swiper/modules';
+  import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 
 
 const TopSell = () => {
@@ -26,19 +26,21 @@ const TopSell = () => {
     <section className='flex flex-col   items-center justify-center  h-full p-5 w-full '>
 
     <div  className='text-center space-y-2  ' >
-      <h2 className='text-4xl font-semibold text-deep_blue ' >Our Top Selling Items</h2>
-      <p>Based on customer Choice</p>
+      <h2 className='text-4xl font-semibold text-deep_blue ' >Our Food Items</h2>
+      <p>Order your favourite food</p>
       
 
      
         
      <div className="w-full mt-10 " >
-
-      <p>Swipe Left or right to see the items</p>
      <Swiper
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 50,
@@ -48,7 +50,7 @@ const TopSell = () => {
           slideShadows: true,
         }}
         pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        modules={[EffectCoverflow, Pagination, Autoplay]}
         // className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4  "
         style={{
           width:'90vw',
