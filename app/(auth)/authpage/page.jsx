@@ -11,3 +11,4 @@ const AuthPage = (props) => {
 }
 
 export default AuthPage;
+

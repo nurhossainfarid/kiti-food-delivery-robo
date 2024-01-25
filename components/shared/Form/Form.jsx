@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-import { RegistrationForm } from "./RegistrationForm";
-import { LoginForm } from "./LoginForm";
 import { FeedbackForm } from "./FeedbackForm";
 
 const Form = (props) => {
@@ -13,15 +11,15 @@ const Form = (props) => {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
-    // data will come to this format
-    // data={
-    //   email:'',
-    //   password:''
-    // }
-
-
+    if(login) {
+      console.log('loginData', data)
+    } else {
+      console.log('registrationdata', data)
+    }
+    
   }
+
+
   return (
     <div  >
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -188,12 +186,7 @@ const Form = (props) => {
             {feedback && <FeedbackForm />}
           </form>
 
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              Start a 14 day free trial
-            </a>
-          </p>
+          
         </div>
       </div>
     </div>

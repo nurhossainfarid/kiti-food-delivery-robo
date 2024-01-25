@@ -15,7 +15,7 @@ import {
     TabsList,
     TabsTrigger,
 } from "@/components/ui/tabs"
-import AuthPage from "@/app/(auth)/login/page";
+import AuthPage from "@/app/(auth)/authpage/page";
 
 
 const Navbar = () => {
@@ -46,7 +46,7 @@ const Navbar = () => {
                           <AuthPage login={true} />
                         </TabsContent>
                         <TabsContent value="signup">
-                           <AuthPage />
+                          <AuthPage  />
                         </TabsContent>
                     </Tabs>
                 </dialog>
