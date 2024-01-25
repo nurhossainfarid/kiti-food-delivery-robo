@@ -6,10 +6,10 @@ const Form = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
+  console.log(errors);
   const onSubmit = (data) => {
     if(login) {
       console.log('loginData', data)
