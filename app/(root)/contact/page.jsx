@@ -14,8 +14,10 @@ const ContactPage = () => {
       <section className="bg-white w-2/3 flex items- mx-auto p-5 mt-10 rounded-lg">
         <div className="flex flex-col gap-20 bg-sky-300 p-8 rounded-lg w-1/2">
           <div>
-            <h1 className="text-3xl font-bold text-deep_blue">Contact Information</h1>
-            <p>Ask Anything, we'd love to here.</p>
+            <h1 className="text-3xl font-bold text-deep_blue">
+              Contact Information
+            </h1>
+            <p>Ask Anything, we did love to here.</p>
           </div>
           <div>
             <ul className="flex gap-5 flex-col">
