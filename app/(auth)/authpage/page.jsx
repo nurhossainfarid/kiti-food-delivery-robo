@@ -1,7 +1,7 @@
 import Form from "@/components/shared/Form/Form";
 
 const AuthPage = (props) => {
-  const {login = false, feedback= false, order=false} = props;
+  const {login, feedback, order} = props;
 
   return (
     <div>
