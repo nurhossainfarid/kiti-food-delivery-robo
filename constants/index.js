@@ -303,3 +303,59 @@ export const ServicesItem = [
 ]
 
 
+export const robotsList = [
+    {
+        id:1,
+        robotName:'kiti 1',
+        selected:false,
+        live:true,
+    },
+    {
+        id:2,
+        robotName:'kiti 2',
+        selected:false,
+        live:true,
+    },
+    {
+        id:3,
+        robotName:'kiti 3',
+        selected:false,
+        live:true,
+    },
+    {
+        id:4,
+        robotName:'kiti 4',
+        selected:false,
+        live:false,
+    },
+    {
+        id:5,
+        robotName:'kiti 5',
+        selected:false,
+        live:false,
+    },
+    {
+        id:6,
+        robotName:'kiti 6',
+        selected:false,
+        live:false,
+    },
+    {
+        id:7,
+        robotName:'kiti 7',
+        selected:false,
+        live:false,
+    },
+    {
+        id:8,
+        robotName:'kiti 8',
+        selected:false,
+        live:true,
+    },
+    {
+        id:9,
+        robotName:'kiti 9',
+        selected:false,
+        live:true,
+    },
+]

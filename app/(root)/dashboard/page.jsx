@@ -1,14 +1,12 @@
-import React from 'react'
+import Admin from "@/components/dashboardComponents/Admin";
 
 const DashboardPage = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+      <Admin />
+    </div>
   )
 }
 
 export default DashboardPage;
-
-
-
-
 
