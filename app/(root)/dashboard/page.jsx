@@ -2,9 +2,9 @@ import Admin from "@/components/dashboardComponents/Admin";
 
 const DashboardPage = () => {
   return (
-    <section>
-        <Admin />
-    </section>
+    <div>
+      <Admin />
+    </div>
   )
 }
 
