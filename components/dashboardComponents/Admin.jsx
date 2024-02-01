@@ -1,12 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import { useDispatch, useSelector } from "react-redux"
-import { CgMenuLeft } from "react-icons/cg";
-import { useEffect } from "react";
-import { getRobotByid, getallRobotsList } from "@/features/robots/robotsSlice";
-import { RiRobot2Line } from "react-icons/ri";
-import { MdAddCircleOutline } from "react-icons/md";
+import { useSelector } from "react-redux"
 import { AiOutlineDeliveredProcedure } from "react-icons/ai";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -15,15 +10,10 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { useForm } from "react-hook-form"
 import { Input } from "../ui/input";
 import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
+
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import DashboardSidebar from "./DashboardSidebar";
