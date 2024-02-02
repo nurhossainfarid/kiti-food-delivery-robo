@@ -6,24 +6,25 @@ import { MdEmail, MdOutlineFacebook } from "react-icons/md";
 
 const ContactPage = () => {
   return (
-    <div className="bg-sky-100 p-16">
+    <div className="bg-sky-100 p-5 md:p-16">
       <section className="text-center">
-        <h1 className="text-4xl font-bold mb-2">Contact Us</h1>
+        <h1 className="text-2xl md:text-4xl font-bold mb-2">Contact Us</h1>
         <p>Having any queries or problem ? Just let us know!</p>
       </section>
-      <section className="bg-white w-2/3 flex items- mx-auto p-5 mt-10 rounded-lg">
-        <div className="flex flex-col gap-20 bg-sky-300 p-8 rounded-lg w-1/2">
+      <section className="bg-white w-full lg:w-2/3 flex flex-col lg:flex-row mx-auto p-3 mt-10 rounded-lg">
+        <div className="flex flex-col gap-5 md:gap-20 bg-sky-300 p-2 md:p-8 rounded-lg lg:w-1/2">
           <div>
-            <h1 className="text-3xl font-bold text-deep_blue">
+            <h1 className="text-2xl md:text-3xl font-bold text-deep_blue">
               Contact Information
             </h1>
-            <p>Ask Anything, we did love to here.</p>
+            <p className="text-sm md:text-lg text-deep_blue">Ask Anything, we did love to here. 
+            </p>
           </div>
           <div>
-            <ul className="flex gap-5 flex-col">
+            <ul className="flex gap-2 md:gap-5 flex-col">
               <li className="flex gap-4 items-center">
-                <FaPhoneVolume />
-                <span>+880xxx-xxxxxx</span>
+                <FaPhoneVolume className="" />
+                <span>+8801841268946</span>
               </li>
               <li className="flex gap-4 items-center">
                 <MdEmail />
@@ -38,13 +39,14 @@ const ContactPage = () => {
               </li>
             </ul>
           </div>
-          <div className="flex gap-16 justify-center items-center text-3xl">
-            <CgWebsite />
-            <MdOutlineFacebook />
-            <FaYoutube />
+          <div className="flex gap-5 md:gap-16 justify-center items-center 
+            text-xl md:text-3xl">
+            <CgWebsite className="hover:text-white" />
+            <MdOutlineFacebook className="hover:text-white" />
+            <FaYoutube className="hover:text-white" />
           </div>
         </div>
-        <div className="w-1/2 -mt-20">
+        <div className="w-full lg:w-1/2 -mt-20">
           <Form feedback={true} />
         </div>
       </section>
