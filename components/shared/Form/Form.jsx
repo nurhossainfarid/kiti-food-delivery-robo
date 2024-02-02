@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { useForm } from "react-hook-form";
 
 const Form = (props) => {
@@ -11,14 +12,54 @@ const Form = (props) => {
   } = useForm();
 
   const onSubmit = (data) => {
+
+    const {firstName, lastName, email, password} = data;
+
     if (login) {
-      console.log("loginData", data);
+        
+      const logindata = {
+        email,
+        password
+      }
+
+      axios.post('http://203.190.8.197/auth/login', logindata)
+      .then(response => {
+        // Store the JWT token in local storage
+        localStorage.setItem('jwtToken', response.data.token);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
+    
+    // Add a request interceptor to axios
+    axios.interceptors.request.use(function (config) {
+      const token = localStorage.getItem('jwtToken');
+      config.headers.Authorization =  token ? `Bearer ${token}` : '';
+      return config;
+    });
+
+    
     } else if (feedback) {
       console.log("feedbackData", data);
     } else if (order) {
       console.log("orderData", data);
     } else {
       console.log("registrationdata", data);
+      
+      const registerData = {
+        first_name:firstName,
+        last_name:lastName,
+        email,
+        password
+      }
+
+      axios.post('http://203.190.8.197/auth/register', registerData)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('There was an error!', error);
+      });
     }
   };
 
