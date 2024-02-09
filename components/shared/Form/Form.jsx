@@ -1,65 +1,79 @@
 "use client";
 
+import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+
+const InputField = ({ label, id, type, register, required }) => (
+  <div>
+    <label htmlFor={id} className="block text-sm font-medium leading-6 text-gray-900">
+      {label}
+    </label>
+    <div className="mt-2">
+      <input
+        id={id}
+        name={id}
+        type={type}
+        autoComplete={id}
+        required={required}
+        {...register(id, { required: true })}
+        className=" px-5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+      />
+    </div>
+  </div>
+);
+
 
 const Form = (props) => {
+
   const { login = false, feedback = false, order = false } = props;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
   const onSubmit = (data) => {
-
     const {firstName, lastName, email, password} = data;
 
     if (login) {
-        
-      const logindata = {
-        email,
-        password
-      }
-
+      const logindata = { email, password }
       axios.post('http://203.190.8.197/auth/login', logindata)
-      .then(response => {
-        // Store the JWT token in local storage
-        localStorage.setItem('jwtToken', response.data.token);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
-    
-    // Add a request interceptor to axios
-    axios.interceptors.request.use(function (config) {
-      const token = localStorage.getItem('jwtToken');
-      config.headers.Authorization =  token ? `Bearer ${token}` : '';
-      return config;
-    });
+        .then(response => {
+          localStorage.setItem('jwtToken', response.data.token);
+          toast.success('Successfully Logged In!');
+          console.log('logindata', response)
+        })
+        .catch(error => {
+          toast.error("Please try again")
+        });
 
-    
+      axios.interceptors.request.use(function (config) {
+        const token = localStorage.getItem('jwtToken');
+        config.headers.Authorization =  token ? `Bearer ${token}` : '';
+        return config;
+      });
+
+      reset();
     } else if (feedback) {
       console.log("feedbackData", data);
     } else if (order) {
       console.log("orderData", data);
     } else {
-      console.log("registrationdata", data);
       
-      const registerData = {
-        first_name:firstName,
-        last_name:lastName,
-        email,
-        password
-      }
+    const registerData = {
+      first_name:firstName,
+      last_name:lastName,
+      email,
+      password
+    }
 
       axios.post('http://203.190.8.197/auth/register', registerData)
       .then(response => {
-        console.log(response.data);
+        toast.success('Successfully Registered!');
       })
       .catch(error => {
-        console.error('There was an error!', error);
+        toast.error('There is same email with this account please try another email');
       });
+
+      reset();
     }
   };
 
@@ -80,178 +94,26 @@ const Form = (props) => {
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             {/* Registration section */}
             {!login && !feedback && (
-              <>
-                {/* First Name Section */}
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    First Name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="firstName"
-                      name="firstName"
-                      type="text"
-                      autoComplete="firstName"
-                      required
-                      {...register("firstName", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                {/* Last Name section */}
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Last Name
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="lastName"
-                      name="lastName"
-                      type="text"
-                      autoComplete="lastName"
-                      required
-                      {...register("lastName", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                {/* Email section */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      {...register("email", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                {/* Email section end */}
-                {/* password section */}
-                <div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <label
-                        htmlFor="password"
-                        className="block text-sm font-medium leading-6 text-gray-900"
-                      >
-                        Password
-                      </label>
-                      <div className="text-sm">
-                        <a
-                          href="#"
-                          className="font-semibold text-indigo-600 hover:text-indigo-500"
-                        >
-                          Forgot password?
-                        </a>
-                      </div>
-                    </div>
-                    <div className="mt-2">
-                      <input
-                        id="password"
-                        name="password"
-                        type="password"
-                        autoComplete="current-password"
-                        {...register("password", { required: true })}
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </>
+               <>
+               <InputField label="First Name" id="firstName" type="text" register={register} required />
+               <InputField label="Last Name" id="lastName" type="text" register={register} required />
+               <InputField label="Email address" id="email" type="email" register={register} required />
+               <InputField label="Password" id="password" type="password" register={register} required />
+             </>
             )}
             {/* Login section */}
             {login && (
-              <>
-                {/* Email section */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      {...register("email", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
-                {/* Email section end */}
-                {/* password section */}
-                <div>
-                  <div className="flex items-center justify-between">
-                    <label
-                      htmlFor="password"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
-                      Password
-                    </label>
-                    <div className="text-sm">
-                      <a
-                        href="#"
-                        className="font-semibold text-indigo-600 hover:text-indigo-500"
-                      >
-                        Forgot password?
-                      </a>
-                    </div>
-                  </div>
-                  <div className="mt-2">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      autoComplete="current-password"
-                      {...register("password", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
+                <>
+                <InputField label="Email address" id="email" type="email" register={register} required />
+                <InputField label="Password" id="password" type="password" register={register} required />
               </>
             )}
-            {feedback && (
+
+
+             {feedback && (
               <>
                 {/* Email section */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Email address
-                  </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      {...register("email", { required: true })}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    />
-                  </div>
-                </div>
+                <InputField label="Email address" id="email" type="email" register={register} required />
                 {/* Select Problem section */}
                 <div>
                   <label
@@ -314,7 +176,8 @@ const Form = (props) => {
                   </div>
                 </div>
               </>
-            )}
+            )} 
+
             <div>
               <button
                 type="submit"

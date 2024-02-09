@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { ReduxProvider } from "./store";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,8 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
-        </body>
+        <Toaster />
+      </body>
     </html>
     </ReduxProvider>
  
