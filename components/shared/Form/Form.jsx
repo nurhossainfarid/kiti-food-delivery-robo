@@ -1,6 +1,5 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -39,7 +38,7 @@ const Form = (props) => {
         .then(response => {
           localStorage.setItem('jwtToken', response.data.token);
           toast.success('Successfully Logged In!');
-          console.log('logindata', response)
+          
         })
         .catch(error => {
           toast.error("Please try again")
