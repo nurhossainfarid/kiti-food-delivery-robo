@@ -5,6 +5,8 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { redirect } from 'next/navigation'
+import { useDispatch } from "react-redux";
+import { setLoggedIn } from "@/features/users/useSlice";
 
 const InputField = ({ label, id, type, register, required }) => (
   <div>
@@ -30,6 +32,7 @@ const Form = (props) => {
 
   const { login = false, feedback = false, order = false } = props;
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const dispatch = useDispatch();
 
 
   const onSubmit =  (data) => {
@@ -43,7 +46,8 @@ const Form = (props) => {
           localStorage.setItem('jwtToken', response.data.token);
           toast.success('Successfully Logged In!');
            await fetchUserProfile();
-           window.location.reload();
+           dispatch(setLoggedIn());
+           window.location.reload()
            
         })
         .catch(error => {
