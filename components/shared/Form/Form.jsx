@@ -1,8 +1,10 @@
 "use client";
 
+import { fetchUserProfile } from "@/utils/object-utils";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { redirect } from 'next/navigation'
 
 const InputField = ({ label, id, type, register, required }) => (
   <div>
@@ -29,26 +31,25 @@ const Form = (props) => {
   const { login = false, feedback = false, order = false } = props;
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  const onSubmit = (data) => {
+
+  const onSubmit =  (data) => {
     const {firstName, lastName, email, password} = data;
 
     if (login) {
       const logindata = { email, password }
       axios.post('http://203.190.8.197/auth/login', logindata)
-        .then(response => {
+        .then( async response => {
+
           localStorage.setItem('jwtToken', response.data.token);
           toast.success('Successfully Logged In!');
-          
+           await fetchUserProfile();
+           window.location.reload();
+           
         })
         .catch(error => {
+          console.log('error', error)
           toast.error("Please try again")
         });
-
-      axios.interceptors.request.use(function (config) {
-        const token = localStorage.getItem('jwtToken');
-        config.headers.Authorization =  token ? `Bearer ${token}` : '';
-        return config;
-      });
 
       reset();
     } else if (feedback) {
@@ -74,6 +75,8 @@ const Form = (props) => {
 
       reset();
     }
+
+    
   };
 
   return (

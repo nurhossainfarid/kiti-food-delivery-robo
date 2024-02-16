@@ -1,6 +1,14 @@
+'use client'
+import { getUserProfile } from "@/utils/object-utils";
 import Link from "next/link";
 
 const NavItems = () => {
+
+    
+     // Get the user profile from local storage
+     const user =  JSON.parse(getUserProfile());
+
+     
 
     return (
         <ul className="flex flex-col md:flex-row   md:space-x-4 items-center  " >
@@ -8,7 +16,7 @@ const NavItems = () => {
             <li><Link href={'/about'} >About Us</Link></li>
             <li><Link href={'/food-items'} >Food Items</Link></li>
             <li><Link href={'/contact'}>Contact</Link></li>
-            <li><Link href={'/dashboard'}>Dashboard</Link></li>
+            { user !== null && <li><Link href={'/dashboard'}>Dashboard</Link></li>}
         </ul>
     )
 }
