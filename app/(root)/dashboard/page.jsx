@@ -7,7 +7,7 @@ const DashboardPage = () => {
 
   const user =  JSON.parse(getUserProfile());
 
-      const{role} = user;
+  const role = user?.role ?? null;
       
     const DashboardLink = ({ href, children }) => (
       <Link href={href} className="bg-primary shadow-lg p-5 md:p-20 rounded-md">
