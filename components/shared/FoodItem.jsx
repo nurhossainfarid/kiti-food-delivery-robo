@@ -1,9 +1,14 @@
+'use client'
+
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { MdFavorite } from "react-icons/md";
-import { Button } from "../ui/button";
+
+import ConfirmOrder from "./ConfirmOrder";
 
 const FoodItem = ({ item }) => {
-  const { name, description, price, photo: image } = item;
+  
+  const {id, name, description, price, photo: image } = item;
+
 
   return (
     <div>
@@ -25,7 +30,11 @@ const FoodItem = ({ item }) => {
               </h4>
             </div>
             <div className="card-actions flex justify-between">
-              <Button className="bg-primary">Order Now</Button>
+           
+              <ConfirmOrder  item={item} />
+             
+   
+              
               <div className="flex gap-2">
                 <BsFillCartCheckFill className="text-green-700 text-3xl font-bold" />
                 <MdFavorite className="text-green-700 text-3xl font-bold" />
