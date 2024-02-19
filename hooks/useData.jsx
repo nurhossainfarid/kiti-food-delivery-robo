@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Fooditems } from "@/constants";
 
 export const useData = (url) => {
     const [data, setData] = useState([]);
@@ -11,7 +12,7 @@ export const useData = (url) => {
         .catch((error) => {
           console.error("Error:", error);
         });
-    }, []);
+    }, [data]);
     return {
         data
     }

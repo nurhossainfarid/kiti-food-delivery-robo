@@ -8,10 +8,7 @@
     height: 100%;
 }
 
-.swiper_slide2  {
-    height: 600px;
-}
-.swiper_slide2 img {
+.swiper_slide2_img {
     height: 400px;
     width: 100%;
     background-position: center;

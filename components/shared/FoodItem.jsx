@@ -13,15 +13,17 @@ const FoodItem = ({ item }) => {
         </figure>
         <div className="card-body justify-end p-5">
           <div className="">
-            <h2 className="card-title text-white">{name}</h2>
-            <h4 className="text-2xl font-bold text-white">
-              <span
-                className="text-yellow-500 text-lg"
-              >
-                TK
-              </span>{" "}
-              {price}{" "}
-            </h4>
+            <div className="flex gap-5 mb-2">
+              <h2 className="card-title text-white">{name}</h2>
+              <h4 className="text-2xl font-bold text-white">
+                <span
+                  className="text-yellow-500 text-lg"
+                >
+                  TK
+                </span>{" "}
+                {price}{" "}
+              </h4>
+            </div>
             <div className="card-actions flex justify-between">
               <Button className="bg-primary">Order Now</Button>
               <div className="flex gap-2">
